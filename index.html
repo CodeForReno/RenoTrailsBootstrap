@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <title>Searchable Map Template Demo</title>
+    <title>Truckee Meadows Trails</title>
     <meta charset='utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content='' name='description' />
@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class='navbar-brand' href='index.html'>Searchable Map Template</a>
+          <a class='navbar-brand' href='index.html'>Truckee Meadows Trails</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -36,10 +36,10 @@
     <div class='container-fluid'>
       <div class='row'>
         <div class='col-md-4'>
-          <p>This is a demo of <a href='http://derekeder.com'>Derek Eder's</a> <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> using Google <a href='http://support.google.com/fusiontables/answer/2571232?hl=en&amp;ref_topic=1652595'>Fusion Tables</a>. Use this section to give a little context to your map.</p>
+          <p>These are trails of the Truckee Meadows region of Nevada. Use the search tools to find trails of interest to you.</p>
           <div class='well'>
             <h4>
-              Address <small>(<a id='find_me' href='#'>find me</a>)</small>
+              Near <small>(<a id='find_me' href='#'>find me</a>)</small>
             </h4>
             <p>
               <input class='form-control' id='search_address' placeholder='Enter an address or an intersection' type='text' />
@@ -48,16 +48,31 @@
               <label>
                 within
                 <select id='search_radius'>
-                  <option value='400'>2 blocks</option>
-                  <option value='805'>1/2 mile</option>
                   <option value='1610'>1 mile</option>
                   <option value='3220'>2 miles</option>
+                  <option value='8050'>5 miles</option>
                 </select>
               </label>
             </p>
 
-            <br />
-            <h4>Custom filters and views</h4>
+            <h4>Allowed Uses</h4>
+            <ul class='inputs-list unstyled'>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbDogs' />
+                  Dogs
+                </label>
+              </li>
+            </ul>
+            <h4>ADA Accessible</h4>
+            <ul class='inputs-list unstyled'>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbAda' />
+                  Yes
+                </label>
+              </li>
+            </ul>
             <p>Take a look at the <a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples'>wiki</a> to see how to add your own custom filters and views like:</p>
             <div class='row'>
               <div class='col-md-6'>
@@ -123,7 +138,8 @@
             googleApiKey:       "AIzaSyCGNrknFzitC1YI7XcckN6NLG4HiqCtY1g",
             locationColumn:     "Location",
             map_center:         [39.529633, -119.813803],
-            locationScope:      "nevada"
+            locationScope:      "nevada",
+            defaultZoom:        10
           });
 
           var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search_address'));

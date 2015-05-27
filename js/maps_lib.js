@@ -67,7 +67,6 @@
         else 
             $("#search_radius").val(self.searchRadius);
         
-        $(":checkbox").prop("checked", "checked");
         $("#result_box").hide();
 
         //-----custom initializers-----
@@ -163,6 +162,13 @@
         self.whereClause = self.locationColumn + " not equal to ''";
         
         //-----custom filters-----
+        if ( $("#cbAda").is(':checked')) {
+            self.whereClause += " AND ada_accessible='TRUE'";
+        }
+        var uses = [];
+        if ( $('#cbDogs').is(':checked')) {
+            self.whereClause += " AND allowed_uses LIKE '%dogs%'";
+        } 
         //-----end of custom filters-----
 
         self.getgeoCondition(address, function (geoCondition) {
